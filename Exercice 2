@@ -1,0 +1,27 @@
+import random 
+import matplotlib.pyplot as plt
+x0 , y0 = 0.05 , 0.0
+ordonnes=list()
+abscisses=list()
+for i in range(30000):
+    p=random.uniform(0,1)
+    if p<0.02:
+        x=0.5
+        y=0.27*y0
+    elif 0.02<p<0.13:
+        x=-0.139*x0+0.263*y0+0.57
+        y=0.246*x0+0.224*y0-0.036
+    elif 0.13<p<0.15:
+        x=0.17*x0-0.215*y0+0.408
+        y=0.246*x0+0.176*y0+0.0893
+    elif 0.7<p<1:
+        x=0.781*x0+0.034*y0+0.1075
+        y=-0.032*x0+0.739*y0+0.27
+    x0 , y0 = x, y
+    ordonnes+=[y]
+    abscisses+=[x]
+ax=plt.gca()
+ax.set_xticks([])
+ax.set_yticks([])
+plt.plot(abscisses,ordonnes,"b.")
+plt.show()
